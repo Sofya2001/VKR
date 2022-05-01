@@ -4,13 +4,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({"title", "id","timestamp","service","correlationId","status"})
+@JsonPropertyOrder({"title", "id","timestamp","service","status"})
 public class MessageHeader {
     private String title;
     private String id;
     private String timestamp;
     private String service;
-    private String correlationId;
     private String status;
 
     public String getTitle() {
@@ -45,14 +44,6 @@ public class MessageHeader {
         this.service = service;
     }
 
-    public String getCorrelationId() {
-        return correlationId;
-    }
-
-    public void setCorrelationId(String correlationId) {
-        this.correlationId = correlationId;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -61,12 +52,11 @@ public class MessageHeader {
         this.status = status;
     }
 
-    public MessageHeader(String title, String id, String timestamp, String service, String correlationId, String status) {
+    public MessageHeader(String title, String id, String timestamp, String service,  String status) {
         this.title = title;
         this.id = id;
         this.timestamp = timestamp;
         this.service = service;
-        this.correlationId = correlationId;
         this.status = status;
     }
 
@@ -77,7 +67,6 @@ public class MessageHeader {
                 ", id='" + id + '\'' +
                 ", timestamp='" + timestamp + '\'' +
                 ", service='" + service + '\'' +
-                ", correlationId='" + correlationId + '\'' +
                 ", status='" + status + '\'' +
                 '}';
     }

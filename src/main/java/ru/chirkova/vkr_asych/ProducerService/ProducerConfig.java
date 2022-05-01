@@ -36,7 +36,6 @@ public class ProducerConfig {
         return props;
     }
 
-
     @Bean
     public ProducerFactory<String, MessageRequest> producerFactory(){
         return  new DefaultKafkaProducerFactory<>(producerConfigs());

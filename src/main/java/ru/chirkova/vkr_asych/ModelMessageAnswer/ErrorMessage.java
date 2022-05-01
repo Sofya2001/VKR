@@ -4,6 +4,7 @@ package ru.chirkova.vkr_asych.ModelMessageAnswer;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({"errorCause", "errorMessage"})
 public class ErrorMessage {

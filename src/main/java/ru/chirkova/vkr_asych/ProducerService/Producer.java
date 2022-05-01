@@ -20,6 +20,8 @@ import ru.chirkova.vkr_asych.ModelMessageAnswer.MessageCallBack;
 import ru.chirkova.vkr_asych.ModelMessageAnswer.MessageHeader;
 import ru.chirkova.vkr_asych.ModelMessageRequest.MessageRequest;
 
+import java.time.LocalDateTime;
+
 @Service
 public class Producer {
 
@@ -30,6 +32,7 @@ public class Producer {
 
     @Autowired
     private KafkaTemplate<String, MessageRequest> kafkaTemplate;
+
 
     public void sendMessageWithCallback(MessageRequest message) {
 
@@ -42,10 +45,9 @@ public class Producer {
                 MessageCallBack callBack=new MessageCallBack(
                         new MessageHeader(message.getHeader().getTitle(),
                                 message.getHeader().getId(),
-                                message.getHeader().getTimestamp(),
+                                String.valueOf(LocalDateTime.now()),
                                 message.getHeader().getService(),
-                                message.getHeader().getCorrelationId(),
-                                "Successfuly"
+                                "Succesfully"
                                 ),
                             new MessageBody(String.valueOf(result.getRecordMetadata().topic()),
                                             String.valueOf(result.getRecordMetadata().partition()),
@@ -69,7 +71,6 @@ public class Producer {
                                 message.getHeader().getId(),
                                 message.getHeader().getTimestamp(),
                                 message.getHeader().getService(),
-                                message.getHeader().getCorrelationId(),
                                 "Error"
                         ),
                         new MessageBody(new ErrorMessage(String.valueOf(ex.getCause()),
@@ -85,7 +86,9 @@ public class Producer {
 
         });
     }
+
+
 }
-
-
-
+//
+//
+//

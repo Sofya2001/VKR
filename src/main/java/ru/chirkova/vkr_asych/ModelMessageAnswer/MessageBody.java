@@ -11,6 +11,7 @@ public class MessageBody {
     private String offset;
     private ErrorMessage error;
 
+
     public MessageBody( String topic, String partition, String offset) {
         this.topic = topic;
         this.partition = partition;
