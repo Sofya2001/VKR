@@ -1,4 +1,4 @@
-package ru.chirkova.vkr_asych.ModelMessageRequest;
+package ru.chirkova.ModelMessageAnswer;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -15,6 +15,5 @@ public class MessageHeader {
     private String id;
     private String timestamp;
     private String service;
-
-
+    private String status;
 }

@@ -1,4 +1,4 @@
-package ru.chirkova.vkr_asych.ConsumerService.Error;
+package ru.chirkova.ConsumerService.Error;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.Consumer;
